@@ -37,6 +37,8 @@ class Cube:
         self.directions = [1,-1]
         self.rotation_methods = [self.rotate_row, self.rotate_column, self.rotate_layer]
 
+        self.max_rotations = 0
+
     # Shuffles the cube for r rotations.
     def shuffle_cube(self, rotations):
         for i in range(0, rotations):
@@ -45,6 +47,7 @@ class Cube:
             rot_index = randint(0,2)
             rotation_method = self.rotation_methods[rot_index]
             rotation_method(index, self.directions[dir_index])
+            max_rotations = rotations
 
 
     # Rotates a row (horizontally, x), 1 is right, and -1 is left.
