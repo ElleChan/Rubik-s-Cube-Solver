@@ -39,7 +39,7 @@ class Cube:
 
         self.max_rotations = 0
 
-    def setFaces(self, faces):
+    def set_faces(self, faces):
         self.front_face = faces[0]
         self.back_face = faces[1]
         self.left_face = faces[2]
@@ -82,8 +82,8 @@ class Cube:
 
     def print_cube(self):
         print ("Front:\n", self.front_face)
-        print ("Left:\n", self.left_face)
         print ("Back:\n", self.back_face)
+        print ("Left:\n", self.left_face)
         print ("Right:\n", self.right_face)
         print ("Top:\n", self.top_face)
         print ("Bottom:\n", self.bottom_face)
