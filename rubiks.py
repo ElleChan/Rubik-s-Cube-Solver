@@ -39,20 +39,14 @@ class Cube:
 
         self.max_rotations = 0
 
-    def __init__(self, n, front, back, left, right, top, bottom):
-        self.n = n
-        self.front_face = front
-        self.back_face = back
-        self.left_face = left
-        self.right_face = right
-        self.top_face = top
-        self.bottom_face = bottom
+    def setFaces(self, faces):
+        self.front_face = faces[0]
+        self.back_face = faces[1]
+        self.left_face = faces[2]
+        self.right_face = faces[3]
+        self.top_face = faces[4]
+        self.bottom_face = faces[5]
 
-        self.directions = [1,-1]
-        self.rotation_methods = [self.rotate_row, self.rotate_column, self.rotate_layer]
-
-        self.max_rotations = 0
-        
 
     # Shuffles the cube for r rotations.
     def shuffle_cube(self, rotations):
