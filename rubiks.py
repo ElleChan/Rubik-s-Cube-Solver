@@ -25,7 +25,7 @@ import numpy as np
 
 
 class Cube:
-    def __init__(self, n, front='B', back='G', right='W', left='Y', top='R', bottom='O'):
+    def __init__(self, n, front='B', back='G', left='Y', right='W', top='R', bottom='O'):
         self.n = n
         self.front_face = np.full((n,n), front)
         self.back_face = np.full((n,n), back)
@@ -38,6 +38,21 @@ class Cube:
         self.rotation_methods = [self.rotate_row, self.rotate_column, self.rotate_layer]
 
         self.max_rotations = 0
+
+    def __init__(self, n, front, back, left, right, top, bottom):
+        self.n = n
+        self.front_face = front
+        self.back_face = back
+        self.left_face = left
+        self.right_face = right
+        self.top_face = top
+        self.bottom_face = bottom
+
+        self.directions = [1,-1]
+        self.rotation_methods = [self.rotate_row, self.rotate_column, self.rotate_layer]
+
+        self.max_rotations = 0
+        
 
     # Shuffles the cube for r rotations.
     def shuffle_cube(self, rotations):
