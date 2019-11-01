@@ -109,6 +109,7 @@ class Test(unittest.TestCase):
 
         np.testing.assert_array_equal(cube.get_faces(), [front,back,left,right,top,bottom], "Should be True")
 
+    # Test rotating back layer clockwise.
     def test_6(self):
         cube=Cube(3)
         front = np.array([['W','R','O'],['O','B','Y'],['G','R','R']])
@@ -126,6 +127,7 @@ class Test(unittest.TestCase):
         top = np.array([['Y','B','B'],['Y','W','B'],['O','Y','G']])
         bottom = np.array([['W','G','B'],['G','Y','B'],['Y','G','R']])
         cube.rotate_layer(2, -1)
+
 
         np.testing.assert_array_equal(cube.get_faces(), [front,back,left,right,top,bottom], "Should be True")
 
