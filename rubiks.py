@@ -14,6 +14,7 @@ We assume that:
     White is the top
     Yellow is the bottom
 You can change this by changing the character values in the initialization.
+Numerical values are also permitted.
 
 Note that rows are 0 to n-1, top down.
           cols are 0 to n-1, left right.
@@ -60,11 +61,13 @@ class Cube:
     # Shuffles the cube for r rotations.
     def shuffle_cube(self, rotations):
         for i in range(0, rotations):
-            index = randint(0,self.n-1)
-            dir_index = randint(0,1)
-            rot_index = randint(0,2)
-            rotation_method = self.rotation_methods[rot_index]
-            rotation_method(index, self.directions[dir_index])
+            index = randint(0,self.n-1)                             # Pick a row/col/layer number
+            while self.n % 2 == 1 and index == self.n // 2:         # Can't rotate middle row/col/layer when n is odd.
+                index = randint(0,self.n-1)
+            dir_index = randint(0,1)                                # Pick a direction
+            rot_index = randint(0,2)                                # Pick a row, col, or layer
+            rotation_method = self.rotation_methods[rot_index]      
+            rotation_method(index, self.directions[dir_index])      # Rotate.
             max_rotations = rotations
 
 
@@ -106,6 +109,7 @@ class Cube:
             self.front_face = np.rot90(self.front_face, direction)
         elif depth == self.n -1:
             self.back_face = np.rot90(self.back_face, -direction)
+
 
     def print_cube(self):
         print ("Front:\n", self.front_face)

@@ -1,5 +1,5 @@
 '''
-Jael Butler and Mitchell Walker
+Jael Butler
 CS 4820
 10/23/2019
 
