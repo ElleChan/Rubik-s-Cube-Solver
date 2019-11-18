@@ -131,6 +131,16 @@ class Test(unittest.TestCase):
 
         np.testing.assert_array_equal(cube.get_faces(), [front,back,left,right,top,bottom], "Should be True")
 
+    # Tests a solved cube is classified as such.
+    def test_7(self):
+        cube = Cube(3)
+        np.testing.assert_equal(cube.is_solved(), True)
+
+    # Test unsolved cubes are classified as such.
+    def test_8(self):
+        cube = Cube(3)
+        cube.shuffle_cube(1)
+        np.testing.assert_equal(cube.is_solved(), False)
 
 if __name__ == '__main__':
     unittest.main()
