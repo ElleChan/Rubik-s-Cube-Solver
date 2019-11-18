@@ -68,7 +68,7 @@ class Cube:
             rot_index = randint(0,2)                                # Pick a row, col, or layer
             rotation_method = self.rotation_methods[rot_index]      
             rotation_method(index, self.directions[dir_index])      # Rotate.
-            max_rotations = rotations
+            self.max_rotations = rotations
 
 
     # Rotates a row (horizontally, x), 1 is left, and -1 is right.
@@ -109,6 +109,17 @@ class Cube:
             self.front_face = np.rot90(self.front_face, direction)
         elif depth == self.n -1:
             self.back_face = np.rot90(self.back_face, -direction)
+
+    def is_solved(self):
+        faces = self.get_faces()
+        for face in faces:
+            val = face[0,0]
+            for row in face:
+                for col in row:
+                    #print(col, val)
+                    if col != val:
+                        return False
+        return True
 
 
     def print_cube(self):
